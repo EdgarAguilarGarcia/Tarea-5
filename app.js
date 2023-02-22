@@ -10,7 +10,7 @@ app.listen(port_number);
 app.use(express.static('public'));
 
 //Socket setup
-var io = socket(server);
+var io = socket(port_number);
 
 io.on('connection', function(socket){
     console.log('creada la coneccion de socket', socket.id)
