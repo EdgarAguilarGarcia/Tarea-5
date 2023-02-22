@@ -2,18 +2,11 @@ var express = require('express');
 var socket = require('socket.io');
 
 //App setup
-const http = require('http');
-const port = process.env.PORT || 3000
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>Hello World</h1>');
+var app = express();
+var server = app.listen(4000, function(){
+    console.log('Escuchando peticiones del puerto 4000')
 });
 
-server.listen(port,() => {
-  console.log(`Server running at port `+port);
-});
 //Static files
 app.use(express.static('public'));
 
