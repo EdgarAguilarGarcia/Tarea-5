@@ -1,5 +1,5 @@
 //Make connection
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('https://wasapo.herokuapp.com/');
 
 //Query DOM
 var mensaje = document.getElementById('mensaje');
