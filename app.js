@@ -3,21 +3,12 @@ var socket = require('socket.io');
 
 //App setup
 var app = express();
-const http = require('http');
-const port = process.env.PORT || 3000
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  app.use(express.static('public'));
-});
-
-server.listen(port,() => {
-  console.log(`Server running at port `+port);
+var server = app.listen(4000, function(){
+    console.log('Escuchando peticiones del puerto 4000')
 });
 
 //Static files
-
+app.use(express.static('public'));
 
 //Socket setup
 var io = socket(server);
