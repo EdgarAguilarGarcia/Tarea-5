@@ -14,7 +14,7 @@ server.listen(PORT, function() {
 });
 
 //Socket setup
-var io = socket(server);
+//var io = socket(server);
 
 /*io.on('connection', function(socket){
     console.log('creada la coneccion de socket', socket.id)
