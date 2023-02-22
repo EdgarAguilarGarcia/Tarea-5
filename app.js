@@ -1,4 +1,4 @@
-var socket = require('socket.io');
+//var socket = require('socket.io');
 
 var PORT = process.env.PORT || 5000;
 var express = require('express');
@@ -16,7 +16,7 @@ server.listen(PORT, function() {
 //Socket setup
 var io = socket(server);
 
-io.on('connection', function(socket){
+/*io.on('connection', function(socket){
     console.log('creada la coneccion de socket', socket.id)
 
     socket.on('chat', function(data){
@@ -26,4 +26,14 @@ io.on('connection', function(socket){
     socket.on('escribiendo', function(data){
         socket.broadcast.emit('escribiendo', data)
     });
+});*/
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+  socket.on('chat', function(data) {
+    io.emit('chat', data);
+  });
+  socket.on('escribiendo', function(data) {
+    io.emit('escribiendo', data);
+  });
 });
