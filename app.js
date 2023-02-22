@@ -3,9 +3,8 @@ var socket = require('socket.io');
 
 //App setup
 var app = express();
-var server = app.listen(4000, function(){
-    console.log('Escuchando peticiones del puerto 4000')
-});
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
 
 //Static files
 app.use(express.static('public'));
